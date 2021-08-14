@@ -8,12 +8,14 @@ import createFileForCache from "../libs/createFileForCache";
 import getDirCached from "../libs/getDirCached";
 import { MikroORM, RequestContext } from "@mikro-orm/core";
 import mikroOrmConfig from "./mikro-orm.config";
+import dotenv from "dotenv";
+dotenv.config();
 
-// app.use(async(req, res, next) => {
-//     const orm = await MikroORM.init(mikroOrmConfig);
-//     await orm.getMigrator().up();
-//     RequestContext.create(orm.em, next);
-// })
+app.use(async(req, res, next) => {
+    const orm = await MikroORM.init(mikroOrmConfig);
+    await orm.getMigrator().up();
+    RequestContext.create(orm.em, next);
+})
 
 const URL = "https://187572.smb.site";
 
