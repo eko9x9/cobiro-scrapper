@@ -6,16 +6,13 @@ import fs from "fs";
 import customingScrapp from "../libs/customingScrapp";
 import createFileForCache from "../libs/createFileForCache";
 import getDirCached from "../libs/getDirCached";
-import { MikroORM, RequestContext } from "@mikro-orm/core";
-import mikroOrmConfig from "./mikro-orm.config";
+import { RequestContext } from "@mikro-orm/core";
+import MikroOrmInjector from "../libs/mikro-orm/inject";
 import dotenv from "dotenv";
+import constant from "../utils/constant";
 dotenv.config();
 
-app.use(async(req, res, next) => {
-    const orm = await MikroORM.init(mikroOrmConfig);
-    await orm.getMigrator().up();
-    RequestContext.create(orm.em, next);
-})
+app.use(MikroOrmInjector);
 
 const URL = "https://187572.smb.site";
 
@@ -36,6 +33,6 @@ app.get("/", async (req, res) => {
 
 })
 
-server.listen(4000, () => {
+server.listen(constant.PORT_SERVER, () => {
     console.log("sv run")
 });

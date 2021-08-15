@@ -1,16 +1,16 @@
 version: "3.8"
 services: 
   
-  # cobiro-scrapper:
-  #   build: 
-  #     dockerfile: Dockerfile
-  #     context: ./
-  #   command: yarn dev
-  #   ports: 
-  #     - 4000:4000
-  #   volumes: 
-  #     - type: volume
-  #       target: /home/eko9x9/app/temp
+  cobiro-scrapper:
+    build: 
+      dockerfile: Dockerfile
+      context: ./
+    command: yarn dev
+    ports: 
+      - 4000:4000
+    volumes: 
+      - type: volume
+        target: /home/eko9x9/app/temp
 
   postgres:
     image: postgres
