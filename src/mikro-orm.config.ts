@@ -1,11 +1,10 @@
 import { MikroORM } from "@mikro-orm/core";
 import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
-import constant from "utils/constant";
-
-const dbPort = process.env.DB_PORT || "5432";
+import constant from "../utils/constant";
+import { User } from "./entities/User";
 
 export default {
-    entities: [],
+    entities: [User],
     metadataProvider: TsMorphMetadataProvider,
     user: constant.DB.USER,
     password: constant.DB.PASS,

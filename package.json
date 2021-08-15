@@ -3,6 +3,7 @@
     "@mikro-orm/cli": "^4.5.7",
     "@mikro-orm/core": "^4.5.7",
     "@mikro-orm/mysql": "^4.5.7",
+    "@mikro-orm/postgresql": "^4.5.7",
     "@types/mysql": "^2.15.19",
     "@types/x-ray": "^2.3.3",
     "body-parser": "^1.19.0",
